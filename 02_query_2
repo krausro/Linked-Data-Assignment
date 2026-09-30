@@ -1,0 +1,13 @@
+# Query for number of peer-reviewed publications authored by a person, published in a certain publication venue
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+
+SELECT (COUNT(*) as ?count) 
+WHERE
+{
+	?publication dcterms:creator <n1234> .
+	?publication bibo:status "Peer Reviewed" .
+	?publication dcterms:isPartOf <https://doi.org/10.2345/pubvenue.12345> .
+}
+

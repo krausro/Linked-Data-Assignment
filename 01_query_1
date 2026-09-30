@@ -1,0 +1,22 @@
+
+# Query for publication list of a person with the relevant publication metadata
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+    
+SELECT ?publication ?identifier ?type ?creator ?title ?status ?language ?subject ?in ?publicationYear ?access
+WHERE
+{   ?publication dcterms:identifier ?identifier . 
+	?publication dcterms:type ?type . 
+	?publication dcterms:creator <n1234> .
+	?publication dcterms:title ?title . 
+	?publication bibo:status ?status .
+	?publication dcterms:language ?language .
+	?publication dcterms:subject ?subject .
+	?publication dcterms:issued ?publicationYear .
+	?publication dcterms:accessRights ?access .
+	OPTIONAL { ?publication dcterms:isPartOf ?in . } 
+}
+
+
+

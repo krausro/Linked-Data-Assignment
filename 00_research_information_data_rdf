@@ -1,0 +1,43 @@
+BASE <https://vivo.uot.eu/fis/display/> 
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#> 
+PREFIX vivo: <http://vivoweb.org/ontology/core#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+
+<n1234>
+    a vcard:Individual ;
+	a foaf:Person ;
+    vcard:givenName "Anna" ; # KDSF-B-0-3
+	vcard:familyName "Müller" ; # KDSF-B-0-2
+	vcard:honorificPrefix "Dr." ;
+	vivo:orcidId <https://orcid.org/0000-1111-2222-3333> ; # KDSF-B-0-1
+	obo:RO_0002350 <d1112> ;
+	vivo:authorInAuthorship <a5678> . # KDSF-B-8-9
+		  
+<d1112>
+	a vivo:Department ;
+	# to be added according to KDSF-B-14-1, if available: ID of the department
+	vcard: formattedName "Department of Software Development"@en ; #  KDSF-B-14-2
+	obo:BFO_0000050 <https://ror.org/012345678> . #ROR-ID of University of Technology;  KDSF-B-14-1
+		  
+<a5678>
+	a vivo:Authorship ;
+	vivo:linkedAuthor <n1234> ;
+	vivo:linkedInformationResource <r9101> .
+		
+<r9101>
+	dcterms:identifier <https://doi.org/10.1234/example.2026.001> ; # KDSF-B-8-1
+	dcterms:type "PT-2-1"^^<https://kerndatensatz-forschung.de/kdsf_standard/persistent.php?id=Klassif-L-40> ; # KDSF-B-8-12
+	dcterms:creator <n1234> ;
+	dcterms:title "Open Research Information in Practice"@en ; # KDSF-ID: KDSF-B-8-2
+	bibo:status "Peer Reviewed" ;
+	dcterms:language "en"^^<https://www.loc.gov/standards/iso639-2/php/langcodes_name.php?iso_639_1> ; # KDSF-B-8-6
+	dcterms:subject "459"^^<https://kerndatensatz-forschung.de/kdsf_standard/persistent.php?id=Klassif-L-19> # "Open Science"; KDSF-B-8-4
+	dcterms:isPartOf "Journal of Information Science" ; # to be supplemented or replaced by PID of the journal/issue
+	dcterms:issued "2026" ; # KDSF-B-8-3 ;
+	dcterms:accessRights "Gold Open Access" ;
+	dcterms:accessRights <http://purl.org/coar/access_right/c_abf2> . # KDSF-B-8-5 .
+	# to be added, if available: licence information
+
